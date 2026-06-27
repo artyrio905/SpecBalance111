@@ -1,42 +1,29 @@
 name: Build
 
 on:
-
   push:
-
-    branches:
-      - main
-
-  pull_request:
+  workflow_dispatch:
 
 jobs:
-
   build:
 
     runs-on: windows-latest
 
     steps:
 
-      - uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-      - uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 8.0.x
+    - uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 6.0.x
 
-      - name: Restore
+    - name: Restore
+      run: dotnet restore SpecBalance/SpecBalance.csproj
 
-        run: dotnet restore
+    - name: Build
+      run: dotnet build SpecBalance/SpecBalance.csproj -c Release --no-restore
 
-      - name: Build
-
-        run: dotnet build SpecBalance.sln -c Release
-
-      - name: Upload DLL
-
-        uses: actions/upload-artifact@v4
-
-        with:
-
-          name: SpecBalance
-
-          path: SpecBalance/bin/Release/net6.0/SpecBalance.dll
+    - uses: actions/upload-artifact@v4
+      with:
+        name: SpecBalance
+        path: SpecBalance/bin/Release/net6.0/SpecBalance.dll
