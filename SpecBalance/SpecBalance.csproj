@@ -2,47 +2,22 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-
     <OutputType>Library</OutputType>
-
-    <AssemblyName>SpecBalance</AssemblyName>
-    <RootNamespace>SpecBalance</RootNamespace>
-
-    <Version>1.0.0</Version>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
-
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-
     <LangVersion>latest</LangVersion>
-
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-
-    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
 
-    <Reference Include="BepInEx.Core">
-      <HintPath>..\Libs\BepInEx\Core\BepInEx.Core.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
+    <PackageReference Include="BepInEx.Core" Version="6.0.0-be.733" />
+    <PackageReference Include="HarmonyX" Version="2.15.0" />
+    <PackageReference Include="Il2CppInterop.Runtime" Version="1.5.1" />
 
-    <Reference Include="BepInEx.Unity.IL2CPP">
-      <HintPath>..\Libs\BepInEx\Core\BepInEx.Unity.IL2CPP.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
+  </ItemGroup>
 
-    <Reference Include="HarmonyX">
-      <HintPath>..\Libs\BepInEx\Core\HarmonyX.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-
-    <Reference Include="Il2CppInterop.Runtime">
-      <HintPath>..\Libs\BepInEx\Core\Il2CppInterop.Runtime.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
+  <ItemGroup>
 
     <Reference Include="Assembly-CSharp">
       <HintPath>..\Libs\Interop\Assembly-CSharp.dll</HintPath>
